@@ -31,6 +31,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
         title: const Text('Chat App'),
       ),
@@ -39,13 +40,27 @@ class _MainPageState extends State<MainPage> {
         itemBuilder: (BuildContext context, int index) {
           return Container(
             padding: const EdgeInsets.all(5),
-            decoration: const BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black26))),
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            decoration: BoxDecoration(
+              color: Colors.white10,
+              borderRadius: BorderRadius.circular(5),
+            ),
             child: ListTile(
+              textColor: Colors.white,
               title: const Text('Username', textAlign: TextAlign.start),
-              leading: const CircleAvatar(backgroundImage: AssetImage("...")),
+              subtitle: const Text('Last Message',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(color: Colors.white60)),
+              leading: const CircleAvatar(
+                  backgroundImage:
+                      AssetImage("images/default_profile_pic.jpg")),
+              trailing:
+                  const Text('13:32', style: TextStyle(color: Colors.white60)),
               onTap: () {
-                Navigator.pop(context, const ChatPage());
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ChatPage(userId: 1)));
               },
             ),
           );
