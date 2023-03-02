@@ -16,8 +16,24 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        title: const Text("Username"),
-      ),
+          leadingWidth: 30,
+          title: Row(
+            children: const [
+              CircleAvatar(
+                  backgroundImage:
+                      AssetImage("images/default_profile_pic.jpg")),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text("Username"),
+              ),
+            ],
+          ),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios_rounded),
+          )),
     );
   }
 }
